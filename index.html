@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Aniversário Princesa</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+    body {
+      background: linear-gradient(#2b1b17, #0e0e0e);
+      color: #f5deb3;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 3em;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    button {
+      background-color: #6b4226;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #a97449;
+    }
+    .mensagem, .proximaTela {
+      display: none;
+    }
+    .coraçoes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .coraçao {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: cair 10s linear infinite;
+    }
+    .coraçao::before,
+    .coraçao::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .coraçao::before {
+      top: -10px;
+      left: 0;
+    }
+    .coraçao::after {
+      top: 0;
+      left: -10px;
+    }
+    @keyframes cair {
+      to {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="tela1">
+    <h1><strong>FELIZ ANIVERSÁRIO PRINCESA</strong></h1>
+    <button onclick="mostrarTela('tela2')">aperte aqui</button>
+  </div>  <div id="tela2" class="mensagem">
+    <p style="white-space: pre-wrap; font-size: 1.2em;">
+Hoje é um dia muito especial, porque a 14 anos atrás, nasceu uma garota que hoje em dia é uma das pessoas mais importante da minha vida.
+Uma garota linda, carinhosa, incrível, gentil, inteligente, doce, criativa, talentosa, encantadora, perfeita etc.
+E essa garota é você, que além de tudo isso, é muito dedicada no que faz, e eu admiro mt isso em você
+Quero te agradecer por vc ser essa pessoa tão legal q vc é, sempre se importa com os outros, mesmo que seja meio complicada as vzs KK, é impossível não gostar de falar com vc, é extremamente agradável.
+Além disso, quero te agradecer por ter deixado eu entrar na sua vida e por nunca fazer com que eu me sinta mal, sempre se importa com oque sinto, e isso te torna mais especial ainda.
+Espero que essa nova etapa da sua vida seja repleta de coisas boas, e q vc seja feliz
+Feliz 14 anos mnh princesa, e q venham mt mais anos
+Feliz aniversáriooo, eu te amo mtooo!!🎉🎉🎉🎉🎉🎉
+    </p>
+    <button onclick="mostrarTela('tela3')">Quando for 13:00 aperte no botão abaixo</button>
+  </div>  <div id="tela3" class="mensagem">
+    <p style="font-size: 1.2em;">
+Coisas que você é claramente viciada, e mesmo q eu viva falando isso como se fosse julgamento, eu acho legal seu vício:
+<br><br>
+1. React de pesadelo na cozinha<br>
+2. Draco Malfoy<br>
+3. Harry Potter<br>
+4. Cozinhar<br>
+5. Dormir<br>
+6. Esmaltes
+    </p>
+    <button onclick="mostrarTela('tela4')">Aperte aqui somente às 15</button>
+  </div>  <div id="tela4" class="mensagem">
+    <p style="font-size: 1.2em;">
+Coisas que eu admiro em você:
+<br><br>
+Seu amor por leitura<br>
+Sua personalidade<br>
+Seu jeito<br>
+Seu humor<br>
+Vc é empática<br>
+Compreensível<br>
+Apoia td as loucuras<br>
+É mais louca ainda, mas de um jeito legal<br>
+É engraçada<br>
+Seu bom gosto pra algumas músicas<br>
+E muito mais
+    </p>
+    <button onclick="mostrarTela('tela5')">Aperte aqui somente às 18</button>
+  </div>  <div id="tela5" class="mensagem">
+    <p style="font-size: 1.3em; font-weight: bold;">
+Nunca que você faz bem a todos, e brilha completamente, e quem fala ao contrário disso, só tem inveja do quão legal você é
+    </p>
+    <div class="coraçoes" id="coraçoes"></div>
+    <button onclick="mostrarTela('tela6')">Aperte somente antes de ir dormir</button>
+  </div>  <div id="tela6" class="mensagem">
+    <p style="font-size: 1.3em;">
+Esse é um de muitos dias ainda, e espero que ele tenha sido pra você tão especial, igual você é, espero que durma bem e que essa nova jornada da sua vida seja incrível, eu te amo muito, nunca se esqueça disso, você muda a vida de todos pra melhor!!♥︎
+    </p>
+    <div class="coraçoes" id="coraçoesColoridos"></div>
+  </div>  <script>
+    function mostrarTela(id) {
+      const telas = document.querySelectorAll(".mensagem, #tela1");
+      telas.forEach(tela => tela.style.display = "none");
+      document.getElementById(id).style.display = "block";
+      if (id === 'tela5') chuvaDeCoraçoes('coraçoes', 'red');
+      if (id === 'tela6') chuvaDeCoraçoes('coraçoesColoridos', 'rainbow');
+    }
+
+    function chuvaDeCoraçoes(containerId, tipo) {
+      const container = document.getElementById(containerId);
+      for (let i = 0; i < 100; i++) {
+        let cor = tipo === 'rainbow' ? `hsl(${Math.random() * 360}, 100%, 70%)` : 'red';
+        let heart = document.createElement("div");
+        heart.classList.add("coraçao");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * -100 + "vh";
+        heart.style.background = cor;
+        heart.style.setProperty('--color', cor);
+        heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+        container.appendChild(heart);
+        setTimeout(() => heart.remove(), 10000);
+      }
+    }
+  </script></body>
+</html>
